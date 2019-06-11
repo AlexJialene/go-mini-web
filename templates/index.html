@@ -1,9 +1,145 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://vanchun.suyun2006.com/ -->
 <html>
-    <head>
-        <title>{{.title}}</title>
-    </head>
 
-    <body>
-        <h1>helloworld</h1>
-    </body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="../static/icon/logo2.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="../static/icon/logo2.png" type="image/x-icon"/>
+    <title></title>
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet" >
+    <link href="../static/css/dialog.css" rel="stylesheet" >
+    <!--<link href="/css/header.css" rel="stylesheet" media="screen and (max-width: 480px)">
+    <link href="/css/header.css" rel="stylesheet" media="only screen and (min-width: 500px) and (max-width: 960px)">
+    <link href="/css/header.css" rel="stylesheet" media="only screen and (min-width: 960px)">-->
+    <style>
+        #menu li {
+            white-space: nowrap;
+            display: inline-block;
+            margin-left: 20px
+        }
+
+        #logo {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 40px;
+        }
+
+        td {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+<div id="nescss">
+    <header class="">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="#">
+                    <h1><img src="../static/icon/logo2.png" class="brand-logo" id="logo"></i>518512</h1>
+                </a>
+                <!-- <p>NES-style CSS Framework.</p> -->
+            </div>
+            <div class="social-buttons">
+                <!-- <p>Share on SNS</p> -->
+                <div class="share">
+                    <a href="#"><img class="nes-icon" src="../static/icon/index.png"></a>
+                    <a href="#"><img class="nes-icon" src="../static/icon/list.png"></a>
+                    <a href="#"><img class="nes-icon" src="../static/icon/video.png"></a>
+                    <a href="#"><img class="nes-icon" src="../static/icon/about2.png"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main class="main-content">
+            <dialog class="nes-dialog is-rounded" id="dialog" style="display: none">
+                <form method="dialog">
+                    <p id="dialogMsg"></p>
+                    <menu class="dialog-menu">
+                        <button class="nes-btn is-warning" id="closeDialog">OK</button>
+                    </menu>
+                </form>
+            </dialog>
+            <section class="topic">
+                <h2 id="query"><a href="#">#</a>贡献榜</h2>
+                <div class="nes-container is-rounded">
+                    <div class="nes-field">
+                        <label for="nick">虎牙昵称</label>
+                        <input type="text" id="nick" class="nes-input">
+                    </div>
+                    <br>
+                    <a class="nes-btn is-primary" id="queryPoint">查询</a>
+
+                    <p style="padding-top: 20px">
+                        <!-- 直播间贡献榜前100名。从 2019-06-01 开始统计,最新更新时间： -->
+                        <span class="nes-text is-primary" th:text="${updateTime}"></span>
+                    </p>
+                    <div class="nes-table-responsive">
+                        <table class="nes-table is-bordered is-centered" style="width: 95% ;">
+                            <thead>
+                            <tr>
+                                <th style="width:10%">/</th>
+                                <th style="width: 50%">用户</th>
+                                <th style="width: 35%;overflow: hidden;">贡献值</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td style="">
+                                    <img src="http://huyaimg.dwstatic.com/avatar/1077/c4/df62544e46d064bf623a66a5e73b15_180_135.jpg" width="50px" height="50px">
+                                    <p style="white-space: nowrap;display: inline-block;">
+                                        这是名称</p>
+                                </td>
+                                <td >335629200</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        <footer>
+            <p>
+                <span>©2019</span>
+
+                <a href="https://github.com/AlexJialene" target="_blank" rel="noopener">@github.com/AlexJialene</a>
+            </p>
+        </footer>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+<!--<script type="text/javascript" src="/js/dialog.js"></script>-->
+<script type="text/javascript" src="../static/js/ged.js"></script>
+<script>
+    /*function dialog(str) {
+        $('#dialogMsg').html("")
+        $('#dialogMsg').html(str)
+
+        var dialog = document.getElementById('dialog');
+        dialog.showModal();
+    }
+
+    $('#closeDialog').click(function () {
+        $('#dialogMsg').html("")
+        var dialog = document.getElementById('dialog');
+        dialog.close();
+    })
+
+    $('#closeAboutDialog').click(function () {
+        $('#dialogMsg').html("")
+        var dialog = document.getElementById('dialog');
+        dialog.close();
+    })*/
+</script>
+
 </html>

@@ -1,0 +1,68 @@
+@media screen and (max-width: 480px) {
+    /*在这里写小屏幕设备的样式*/
+    #dialog {
+        position: absolute;
+        right: 0;
+        left: 0;
+        display: block;
+        width: -moz-fit-content;
+        width: -webkit-fit-content;
+        width: fit-content;
+        height: -moz-fit-content;
+        height: -webkit-fit-content;
+        height: fit-content;
+        padding: 1em;
+        margin: auto;
+        color: #000;
+        background: #fff;
+        border: solid;
+        z-index: 999;
+        width: 60%;
+    }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 960px) {
+    /*这里写宽度大于321px小于1024px的样式(一般是平板电脑)*/
+    #dialog {
+        position: absolute;
+        right: 0;
+        left: 0;
+        display: block;
+        width: -moz-fit-content;
+        width: -webkit-fit-content;
+        width: fit-content;
+        height: -moz-fit-content;
+        height: -webkit-fit-content;
+        height: fit-content;
+        padding: 1em;
+        margin: auto;
+        color: #000;
+        background: #fff;
+        border: solid;
+        z-index: 999;
+        width: 20%;
+    }
+}
+
+@media only screen and (min-width: 960px) {
+    /*这里写pc客户端的样式*/
+    #dialog {
+        position: absolute;
+        right: 0;
+        left: 0;
+        display: block;
+        width: -moz-fit-content;
+        width: -webkit-fit-content;
+        width: fit-content;
+        height: -moz-fit-content;
+        height: -webkit-fit-content;
+        height: fit-content;
+        padding: 1em;
+        margin: auto;
+        color: #000;
+        background: #fff;
+        border: solid;
+        z-index: 999;
+        width: 14%;
+    }
+}

@@ -10,8 +10,12 @@ import (
 var db *gorm.DB
 
 func main() {
+	gin.SetMode(gin.ReleaseMode)
 	var router = gin.Default()
 	router.LoadHTMLGlob("templates/*")
+
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+
 	bindApi(router)
 
 	mysqlDB, _ := ConnectMySql()
@@ -34,6 +38,6 @@ func indexHtml(c *gin.Context) {
 }
 
 func queryValue(c *gin.Context) {
+	//get value
 
-	//query user's value
 }
