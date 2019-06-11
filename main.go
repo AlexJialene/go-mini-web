@@ -10,14 +10,11 @@ import (
 var db *gorm.DB
 
 func main() {
-	gin.SetMode(gin.ReleaseMode)
 	var router = gin.Default()
-	router.LoadHTMLGlob("templates/*")
-
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	router.LoadHTMLGlob("temp/*")
+	router.Static("/static", "./static")
 
 	bindApi(router)
-
 	mysqlDB, _ := ConnectMySql()
 	db = mysqlDB
 	router.Run(":9000")
@@ -30,14 +27,13 @@ func bindApi(router *gin.Engine) {
 }
 
 func indexHtml(c *gin.Context) {
-	//value := QueryValueByName(db, "木木")
-	//fmt.Println(value)
 	c.HTML(http.StatusOK, "index.html", gin.H{
 		"title": "this is title",
 	})
 }
 
 func queryValue(c *gin.Context) {
-	//get value
-
+	c.JSON(http.StatusOK, gin.H{
+		"ret": "success",
+	})
 }
