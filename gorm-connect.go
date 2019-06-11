@@ -10,7 +10,7 @@ import (
 
 const (
 	USERNAME = "root"
-	PASSWORD = "9$nSz0Iu"
+	PASSWORD = ""
 	NETWORK  = "tcp"
 	SERVER   = "47.106.205.186"
 	PORT     = 3306
