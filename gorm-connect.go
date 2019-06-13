@@ -14,7 +14,7 @@ const (
 	NETWORK  = "tcp"
 	SERVER   = "47.106.205.186"
 	PORT     = 3306
-	DATABASE = "records"
+	DATABASE = "records?charset=utf8&parseTime=True&loc=Local"
 )
 
 func ConnectMySql() (*gorm.DB, error) {
@@ -48,4 +48,27 @@ func QueryItemsLimit100(db *gorm.DB) []Tbl_Item_Records {
 	db.Model(&Tbl_Item_Records{}).Order("value desc").Limit(100).Find(&array)
 
 	return array
+}
+
+func QueryRecordsLastTimeStr(db *gorm.DB) interface{} {
+	//var vo Table
+	//db.Table("information_schema.TABLES").Select("UPDATE_TIME").Where("information_schema.TABLES.TABLE_SCHEMA=? AND information_schema.TABLES.TABLE_NAME=?", "records", "tbl_item_records").Scan(&vo)
+
+	//todo Gorm does not seem to support cross-database queries ? And does anyone know the solution?
+
+	//var updateTime time.Time
+	//db.Raw("select UPDATE_TIME from information_schema.TABLES where information_schema.TABLES.TABLE_SCHEMA=? AND information_schema.TABLES.TABLE_NAME=?", "records", "tbl_item_records").Scan(&updateTime)
+	//fmt.Println(updateTime)
+	//return updateTime
+
+	return nil
+}
+
+type TimeVo struct {
+	id          int
+	UPDATE_TIME time.Time
+}
+
+type Table struct {
+	Update_time time.Time
 }

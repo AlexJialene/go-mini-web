@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -17,23 +18,38 @@ func main() {
 	bindApi(router)
 	mysqlDB, _ := ConnectMySql()
 	db = mysqlDB
+
+	//fmt.Println(QueryRecordsLastTimeStr(db))
 	router.Run(":9000")
 }
 
 func bindApi(router *gin.Engine) {
 	router.GET("/index", indexHtml)
 
-	router.POST("/queryPoint", queryValue)
+	router.GET("/queryValue", queryValue)
 }
 
 func indexHtml(c *gin.Context) {
+	list := QueryItemsLimit100(db)
+	fmt.Println(len(list))
 	c.HTML(http.StatusOK, "index.html", gin.H{
-		"title": "this is title",
+		"title": "your title",
+		"list":  list,
 	})
 }
 
 func queryValue(c *gin.Context) {
+	nick := c.DefaultQuery("nick", "0")
+	if nick == "0" {
+		//return fail
+		c.JSON(http.StatusOK, gin.H{
+			"ret": "fail",
+		})
+	}
+	value := QueryValueByName(db, nick)
 	c.JSON(http.StatusOK, gin.H{
-		"ret": "success",
+		"ret":   "success",
+		"nick":  nick,
+		"value": value.Value,
 	})
 }
